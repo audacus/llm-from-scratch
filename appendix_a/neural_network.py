@@ -1,5 +1,6 @@
 import torch
 
+
 class NeuralNetwork(torch.nn.Module):
     def __init__(self, num_inputs, num_outputs) -> None:
         super().__init__()
@@ -18,5 +19,5 @@ class NeuralNetwork(torch.nn.Module):
         )
 
     def forward(self, x) -> torch.nn.Sequential:
-        # Return logits
+        # Return logits (outputs of the last layer)
         return self.layers(x)
