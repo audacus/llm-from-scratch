@@ -2,8 +2,8 @@ import re
 
 import tiktoken
 
-from text_tokenizer import SimpleTokenizerV1, SimpleTokenizerV2
-from the_verdict import get_the_verdict
+from classes.text_tokenizer import SimpleTokenizerV1, SimpleTokenizerV2
+from data.the_verdict import get_the_verdict
 
 raw_text = get_the_verdict()
 

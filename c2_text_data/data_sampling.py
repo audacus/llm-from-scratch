@@ -1,7 +1,7 @@
 import tiktoken
 
-from dataset import create_dataloader_v1
-from the_verdict import get_the_verdict
+from classes.dataset import create_dataloader_v1
+from data.the_verdict import get_the_verdict
 
 raw_text = get_the_verdict()
 
