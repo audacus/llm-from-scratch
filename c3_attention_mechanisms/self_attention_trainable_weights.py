@@ -1,7 +1,7 @@
 import torch
 
-from classes.attention import SelfAttentionV1, SelfAttentionV2
 from data.attention import inputs
+from utils.attention import SelfAttentionV1, SelfAttentionV2
 
 # Calculate context vector `z^2` for `x^2` only.
 # The second element.

@@ -1,9 +1,10 @@
+import os
 import urllib.request
 from pathlib import Path
 
 
 def get_the_verdict() -> str:
-    file_path = "the-verdict.txt"
+    file_path = os.path.join(os.path.dirname(__file__), "the-verdict.txt")
 
     if not Path(file_path).is_file():
         # Load and save `The Verdict` by Edith Wharton to a file.

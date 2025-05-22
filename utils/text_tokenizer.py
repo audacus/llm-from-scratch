@@ -1,5 +1,9 @@
 import re
 
+import torch
+from tiktoken import Encoding
+from torch import Tensor
+
 
 class SimpleTokenizerV1:
     def __init__(self, vocab: dict[str, int]) -> None:
@@ -50,3 +54,18 @@ class SimpleTokenizerV2:
         # Replace spaces before the specified punctuations.
         text = re.sub(r'\s+([,.:;?!"()\'])', r'\1', text)
         return text
+
+
+def text_to_token_ids(text: str, tokenizer: Encoding) -> Tensor:
+    encoded = tokenizer.encode(text)
+    # Add the batch dimension.
+    encoded_tensor = torch.tensor(encoded).unsqueeze(0)
+
+    return encoded_tensor
+
+
+def token_ids_to_text(token_ids: Tensor, tokenizer: Encoding) -> str:
+    # Remove batch dimension.
+    flat = token_ids.squeeze(0)
+
+    return tokenizer.decode(flat.tolist())

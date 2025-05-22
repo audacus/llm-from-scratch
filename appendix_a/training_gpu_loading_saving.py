@@ -1,10 +1,11 @@
 import torch
+import torch.nn.functional as F
 from torch import Tensor
 from torch.utils.data import DataLoader
-import torch.nn.functional as F
 
 from appendix_a.neural_network import NeuralNetwork
 from appendix_a.toy_dataset import ToyDataset
+from utils.model import get_device
 
 
 def compute_accuracy(model: torch.nn.Module, dataloader: DataLoader):
@@ -35,12 +36,7 @@ print("cuda:", torch.cuda.is_available())
 print("mps:", torch.backends.mps.is_available())
 print("cpu:", torch.cpu.is_available())
 
-# Define device following priorities: cuda > mps > cpu
-device = torch.device(
-    "cuda" if torch.cuda.is_available() else
-    "mps" if torch.backends.mps.is_available() else
-    "cpu"
-)
+device = get_device()
 print("Device:", device)
 
 # Train data

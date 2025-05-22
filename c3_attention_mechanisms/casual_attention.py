@@ -1,7 +1,7 @@
 import torch
 
-from classes.attention import SelfAttentionV2, CasualAttention, MultiHeadAttentionWrapper, MultiHeadAttention
 from data.attention import inputs
+from utils.attention import SelfAttentionV2, CasualAttention, MultiHeadAttentionWrapper, MultiHeadAttention
 
 d_in = inputs.shape[1]
 d_out = 2

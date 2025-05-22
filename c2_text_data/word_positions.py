@@ -1,8 +1,8 @@
 import tiktoken
 import torch
 
-from classes.dataset import create_dataloader_v1
 from data.the_verdict import get_the_verdict
+from utils.dataset import create_dataloader_v1
 
 raw_text = get_the_verdict()
 
